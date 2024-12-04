@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FormEditor from './components/formEditor';
+import FormPreview from './components/formPreview';
+import FillForm from './components/fillForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<FormEditor />} />
+                <Route path="/preview/:id" element={<FormPreview />} />
+                <Route path="/fill/:id" element={<FillForm />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
